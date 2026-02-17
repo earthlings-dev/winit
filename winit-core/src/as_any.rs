@@ -86,7 +86,7 @@ mod tests {
         let mut foo = Foo;
         let foo_ref: &mut dyn FooTrait = &mut foo;
         assert!((foo_ref).cast_ref::<Foo>().is_some());
-        assert!((&&&&foo_ref).cast_ref::<Foo>().is_some());
+        assert!(foo_ref.cast_ref::<Foo>().is_some());
         assert!(foo_ref.cast_mut::<Foo>().is_some());
     }
 }

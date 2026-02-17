@@ -526,10 +526,10 @@ define_class!(
         fn insert_tab(&self, _sender: Option<&AnyObject>) {
             trace_scope!("insertTab:");
             let window = self.window();
-            if let Some(first_responder) = window.firstResponder() {
-                if *first_responder == ***self {
-                    window.selectNextKeyView(Some(self))
-                }
+            if let Some(first_responder) = window.firstResponder()
+                && *first_responder == ***self
+            {
+                window.selectNextKeyView(Some(self))
             }
         }
 
@@ -537,10 +537,10 @@ define_class!(
         fn insert_back_tab(&self, _sender: Option<&AnyObject>) {
             trace_scope!("insertBackTab:");
             let window = self.window();
-            if let Some(first_responder) = window.firstResponder() {
-                if *first_responder == ***self {
-                    window.selectPreviousKeyView(Some(self))
-                }
+            if let Some(first_responder) = window.firstResponder()
+                && *first_responder == ***self
+            {
+                window.selectPreviousKeyView(Some(self))
             }
         }
 
